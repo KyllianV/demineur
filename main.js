@@ -1,5 +1,5 @@
 const TAILLE = 16;
-const NB_BOMBES = 40;
+const NB_BOMBES = 30;
 
 function genererMap() {
     var tableau = [];
