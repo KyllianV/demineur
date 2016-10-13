@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Démineur</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="demineur">
+        <demineur></demineur>
+    </div>
+
+    <template id="template">
+        <div>
+            <div>
+                <p>Bombes restantes : {{ bombesRestantes }}</p>
+                <timer></timer>
+            </div>
+            <div class="map" :style="widthMap">
+                <square v-for="square in map" :infos="square"></square>
+            </div>
+            <div v-if="win" class="win">Gagné !</div>
+            <div v-if="lose" class="lose">Perdu !</div>
+            <button @click="reset">Reset</button>
+        </div>
+    </template>
+
+    <template id="square">
+        <div :class="squareClass" @click="updateMap" @contextmenu="putFlag">
+            <span v-show="updated">{{ this.infos.chiffre != 0 ? this.infos.chiffre : '' }}</span>
+        </div>
+    </template>
+
+    <template id="timer">
+        <p class="time">Temps : {{ time }}s</p>
+    </template>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

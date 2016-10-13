@@ -1,0 +1,70 @@
+.map {
+    display: inline-block;
+}
+
+.square {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: darkgrey;
+    border: 2px solid black;
+    vertical-align: top;
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.square.updated {
+    background-color: whitesmoke;
+}
+
+.square.bombe, .square.flag {
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.square.bombe {
+    background-image: url('bomb.png');
+}
+
+.square.flag {
+    background-image: url('flag.png');
+}
+
+.square.green {
+    color: green;
+}
+
+.square.red {
+    color: red;
+}
+
+.square.darkblue {
+    color: darkblue;
+}
+
+.win, .lose {
+    display: inline-block;
+    font-size: 66px;
+}
+
+.win {
+    color: blue;
+}
+
+.lose {
+    color: red;
+}
+
+button {
+    display: block;
+}
+
+p {
+    display: inline-block;
+}
+
+.time {
+    margin-left: 50px;
+}
