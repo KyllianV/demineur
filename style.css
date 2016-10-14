@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .map {
     display: inline-block;
 }
@@ -67,4 +72,23 @@ p {
 
 .time {
     margin-left: 50px;
+}
+
+.containerInfos {
+    text-align: center;
+}
+
+.menu {
+    background-color: grey;
+}
+
+.menu span {
+    color: blue;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu span:hover {
+    color: white;
 }

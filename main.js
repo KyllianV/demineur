@@ -121,8 +121,9 @@ var demineur = Vue.component('demineur', {
             bombesRestantes: NB_BOMBES,
             win: false,
             lose: false,
-            widthMap: "width: calc(24px*"+ TAILLE +");",
-            time: 0
+            widthMap: "width: " + 24*TAILLE + "px; margin-left: calc(50% - " + (24*TAILLE) / 2 + "px)",
+            time: 0,
+            calculTime: ""
         };
     },
     created: function() {
@@ -139,6 +140,8 @@ var demineur = Vue.component('demineur', {
             this.lose = false;
             this.bombesRestantes = NB_BOMBES;
             this.time = 0;
+            clearInterval(this.calculTime);
+            this.changeTime();
         },
         checkWin: function() {
             var win = true;
@@ -149,6 +152,7 @@ var demineur = Vue.component('demineur', {
             });
             if(win) {
                 this.win = true;
+                clearInterval(this.calculTime);
             }
         },
         endGame: function() {
@@ -156,10 +160,11 @@ var demineur = Vue.component('demineur', {
                 square.updated = true;
             });
             this.lose = true;
+            clearInterval(this.calculTime);
         },
         changeTime() {
             var self = this;
-            setInterval(function() {
+            this.calculTime = setInterval(function() {
                 self.time++;
             }, 1000);
         },

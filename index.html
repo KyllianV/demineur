@@ -12,7 +12,10 @@
 
     <template id="template">
         <div>
-            <div>
+            <div class="menu">
+                <span @click="reset">Nouvelle partie</span>
+            </div>
+            <div class="containerInfos">
                 <p>Bombes restantes : {{ bombesRestantes }}</p>
                 <p class="time">Temps : {{ time }}s</p>
             </div>
@@ -21,7 +24,6 @@
             </div>
             <div v-if="win" class="win">Gagné !</div>
             <div v-if="lose" class="lose">Perdu !</div>
-            <button @click="reset">Reset</button>
         </div>
     </template>
 
