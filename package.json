@@ -1,0 +1,29 @@
+{
+  "name": "demineur",
+  "version": "1.0.0",
+  "description": "Demineur game",
+  "main": "electron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyllianV/demineur.git"
+  },
+  "keywords": [
+    "demineur"
+  ],
+  "author": "Kyllian VINKLER",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyllianV/demineur/issues"
+  },
+  "homepage": "https://github.com/KyllianV/demineur#readme",
+  "dependencies": {
+    "electron": "^1.4.3"
+  },
+  "devDependencies": {
+    "electron-packager": "^8.1.0"
+  }
+}
