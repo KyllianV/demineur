@@ -83,12 +83,12 @@ p {
 }
 
 .menu span {
-    color: blue;
+    color: white;
     display: inline-block;
     padding: 10px;
     cursor: pointer;
 }
 
 .menu span:hover {
-    color: white;
+    color: lightgrey;
 }
