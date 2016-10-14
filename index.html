@@ -14,7 +14,7 @@
         <div>
             <div>
                 <p>Bombes restantes : {{ bombesRestantes }}</p>
-                <!--<timer></timer>-->
+                <p class="time">Temps : {{ time }}s</p>
             </div>
             <div class="map" :style="widthMap">
                 <square v-for="square in map" :infos="square"></square>
@@ -27,12 +27,8 @@
 
     <template id="square">
         <div :class="squareClass" @click="updateMap" @contextmenu="putFlag">
-            <span v-show="updated">{{ this.infos.chiffre != 0 ? this.infos.chiffre : '' }}</span>
+            <span v-if="updated">{{ this.infos.chiffre != 0 ? this.infos.chiffre : '' }}</span>
         </div>
-    </template>
-
-    <template id="timer">
-        <p class="time">Temps : {{ time }}s</p>
     </template>
 
     <script type="text/javascript" src="vue.js"></script>

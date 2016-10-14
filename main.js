@@ -49,26 +49,6 @@ function genererMap() {
     return tableau;
 }
 
-var timer = Vue.component('timer', {
-    template: "#timer",
-    data: function() {
-        return {
-            time: 0
-        };
-    },
-    created: function() {
-        this.changeTime();
-    },
-    methods: {
-        changeTime() {
-            var self = this;
-            setInterval(function() {
-                self.time++;
-            }, 1000);
-        }
-    }
-});
-
 var square = Vue.component('square', {
     template: "#square",
     computed: {
@@ -79,15 +59,17 @@ var square = Vue.component('square', {
             } else if(this.flag) {
                 squareClass += " flag"
             }
-            if(this.infos.bombe && this.updated) {
-                squareClass += " bombe";
-            }
-            if(this.infos.chiffre == 2) {
-                squareClass += " green";
-            } else if(this.infos.chiffre == 3) {
-                squareClass += " red";
-            } else if (this.infos.chiffre >= 4) {
-                squareClass += " darkblue";
+            if(this.updated) {
+                if(this.infos.bombe) {
+                    squareClass += " bombe";
+                }
+                if(this.infos.chiffre == 2) {
+                    squareClass += " green";
+                } else if(this.infos.chiffre == 3) {
+                    squareClass += " red";
+                } else if (this.infos.chiffre >= 4) {
+                    squareClass += " darkblue";
+                }
             }
 
             return squareClass;
@@ -139,8 +121,12 @@ var demineur = Vue.component('demineur', {
             bombesRestantes: NB_BOMBES,
             win: false,
             lose: false,
-            widthMap: "width: calc(24px*"+ TAILLE +");"
+            widthMap: "width: calc(24px*"+ TAILLE +");",
+            time: 0
         };
+    },
+    created: function() {
+        this.changeTime();
     },
     methods: {
         reset: function() {
@@ -152,7 +138,7 @@ var demineur = Vue.component('demineur', {
             this.win = false;
             this.lose = false;
             this.bombesRestantes = NB_BOMBES;
-            this.$children[0].time = 0;
+            this.time = 0;
         },
         checkWin: function() {
             var win = true;
@@ -170,6 +156,12 @@ var demineur = Vue.component('demineur', {
                 square.updated = true;
             });
             this.lose = true;
+        },
+        changeTime() {
+            var self = this;
+            setInterval(function() {
+                self.time++;
+            }, 1000);
         },
         revealAround: function(position) {
             var squaresAround = {
@@ -241,8 +233,7 @@ var demineur = Vue.component('demineur', {
         }
     },
     components: {
-        'square': square,
-        'timer': timer
+        'square': square
     }
 });
 
